@@ -6,8 +6,8 @@ const currentFilePath = fileURLToPath(import.meta.url);
 export const currentDirPath = dirname(currentFilePath);
 
 function readFileContent(file) {
-  const p = join(currentDirPath, file);
-  const fileContent = fs.readFileSync(p).toString();
+  const filePath = join(currentDirPath, file);
+  const fileContent = fs.readFileSync(filePath).toString();
   return fileContent;
 }
 
