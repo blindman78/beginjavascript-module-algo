@@ -11,6 +11,10 @@ function readFileContent(file) {
   return fileContent;
 }
 
+const c = (tt) => {
+  console.log(tt)
+}
+
 const findLargestSum = (file) => {
   // 🦁 Utilise readFileContent pour lire le fichier et stocke-le dans une variable fileContent
   // 🦁 Trouve les lutins en utilisant `.split("\n\n")`pour mac ou `.split("\r\n\r\n")` pour windows dans notre liste
@@ -23,8 +27,24 @@ const findLargestSum = (file) => {
   // 🦁   Si la variable sum est plus grande que la variable largestSum
   // 🦁     Mets la variable sum dans la variable largestSum
   // 🦁 Retourne la variable largestSum
-
-  return 0;
+const fileContent = readFileContent(file);
+// c(fileContent)
+const lutins = fileContent.split("\r\n\r\n");
+// c(lutins)
+let largestSum = 0;
+for (let i = 0; i < lutins.length; i++) {
+  const calories = lutins[i].split("\r\n");
+  //c(calories)
+  let sum = 0;
+  for (let j = 0; j < calories.length; j++) {
+    sum += parseInt(calories[j]);
+    //c(sum)
+  }
+  if (sum > largestSum) {
+    largestSum = sum;
+  }
+}
+  return largestSum;
 };
 
 export const part1 = (file) => {
