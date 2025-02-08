@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon script.js",
-    "start": "node script.js",
+    "dev": "node exercices/1/1.js",
+    "start": "npm run test 1.1",
     "beginjavascript": "echo 'hello beginjavascript, je suis un script bash !'",
     "test": "vitest"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.1.9",
     "vitest": "^0.32.2"
   },
   "dependencies": {

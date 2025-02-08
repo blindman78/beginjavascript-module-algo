@@ -24,7 +24,22 @@ const findLargestSum = (file) => {
   // 🦁     Mets la variable sum dans la variable largestSum
   // 🦁 Retourne la variable largestSum
 
-  return 0;
+  const fileContent = readFileContent(file)
+  const lutins = fileContent.split("\r\n\r\n")
+  let largestSum = 0
+  for (let i = 0; i < lutins.length; i++) {
+    const lutin = lutins[i];
+    const calories = lutin.split("\r\n")
+    let sum = 0
+    for (let i = 0; i < calories.length; i++) {
+      const calorie = calories[i];
+      sum += parseInt(calorie)
+    if (sum > largestSum) {
+      largestSum = sum
+    }     
+    }
+  }
+  return largestSum;
 };
 
 export const part1 = (file) => {
@@ -38,13 +53,13 @@ export const part2 = (file) => {
 };
 
 //Should be 24000 with data-test
-console.log('Test part1', part1('./data-test.txt'));
+console.log('Test exercice part1', part1('./data-test.txt'));
 
 //Should be 74394 with data
-console.log('Test part1', part1('./data.txt'));
+console.log('Test exercice part2', part1('./data.txt'));
 
 //Should be 45000 with data-test
-console.log('Test part2', part2('./data-test.txt'));
+console.log('Test exercice part1', part2('./data-test.txt'));
 
 //Should be 212836 with data
-console.log('Test part2', part2('./data.txt'));
+console.log('Test exercice part2', part2('./data.txt'));
